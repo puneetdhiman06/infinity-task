@@ -9,15 +9,10 @@ const Employee = () => {
 
 
   return (
-    <>
-    <br/>
-    <br/>
-    <br/>
-    <br/>
-    <br/>
+    <div mt={100}>
       {userAdminOrNot && <Employee1/>}
       {!userAdminOrNot && <Employee2/>}
-    </>
+    </div>
   )
 }
 

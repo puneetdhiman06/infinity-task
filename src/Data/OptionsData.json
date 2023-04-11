@@ -1,0 +1,29 @@
+{
+    "singleOpt": [
+        {"value": "forMobile","label":"Mobile Phone"},
+        {"value": "forTv","label":"TV"},
+        {"value": "forRefrigerator","label":"Refrigerator"},
+        {"value": "forWashingMachine","label":"Washing Machine"}
+    ],
+    "valueOpt":{
+        "forMobile" : [
+          {"value": "Broken Screen","label":"Broken Screen"},
+          {"value": "Faulty Camera","label":"Faulty Camera"},
+          {"value": "Overheating Issue","label":"Overheating Issue"}
+        ],
+        "forTv" : [
+          {"value": "Damaged Screen","label":"Damaged Screen"},
+          {"value": "Discoloration Of Screen","label":"Discoloration Of Screen"},
+          {"value": "Adapter Issues","label":"Adapter Issue"}
+        ],
+        "forRefrigerator" :[
+          {"value": "Panel Controls Broken","label":"Panel Controls Broken"},
+          {"value": "Compressor Not Working","label":"Compressor Not Working"},
+          {"value": "Unable To Turn On","label":"Unable To Turn On"}
+        ],
+        "forWashingMachine" : [
+          {"value": "Water overflowing","label":"Water overflowing"},
+          {"value": "Motor not working","label":"Motor not working"}
+        ]
+      }
+}

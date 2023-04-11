@@ -14,15 +14,49 @@ import {
     Button,
   } from '@chakra-ui/react'
 
-  import { ChevronDownIcon } from "@chakra-ui/icons"
+import { ChevronDownIcon } from "@chakra-ui/icons"
+
+
+const requestData = JSON.parse(localStorage.getItem("requestData"));
+console.log(requestData)
+
+const allocatedData = requestData.filter( req=> req.allocated === "unallocated");
+
 
 const Allocated = () => {
+  
+  // const [errorMsg,setErrorMsg] = useState(""); 
+
+  let populate = allocatedData.map( req=>{
+      return   <Tr key={`${req.name} 12`}>
+                  <Td>{req.name}</Td>
+                  <Td>{req.productName}</Td>
+                  <Td>{req.issues.map( iss=> iss.label+", ")}</Td>
+                  <Td>{req.date}</Td>
+                  <Td>{req.status}</Td>
+                  <Td>
+                  <Menu>
+                    {({ isOpen }) => (
+                      <>
+                        <MenuButton isActive={isOpen} as={Button} rightIcon={<ChevronDownIcon />}>
+                          {isOpen ? 'More Details Button' : 'More Details Button'}
+                        </MenuButton>
+                        <MenuList>
+                          <MenuItem onClick={() => {alert('Assigned to employee1 (admin)')}}>Open</MenuItem>
+                        </MenuList>
+                      </>
+                    )}
+                  </Menu>
+                  </Td>
+              </Tr>
+    })
+
   return (
    <TableContainer>
     <Table variant='simple'>
         <Thead>
         <Tr>
-            <Th>Employee’s Username</Th>
+            <Th>Customers Username</Th>
             <Th>Product Type</Th>
             <Th>Issue Type</Th>
             <Th>Date of Submission</Th>
@@ -31,29 +65,7 @@ const Allocated = () => {
         </Tr>
         </Thead>
         <Tbody>
-        <Tr>
-            <Td>Lalita</Td>
-            <Td>Mobile Phone</Td>
-            <Td>Broken Screen</Td>
-            <Td>13 may 2000</Td>
-            <Td>Not Completed</Td>
-            <Td>
-            <Menu>
-              {({ isOpen }) => (
-                <>
-                  <MenuButton isActive={isOpen} as={Button} rightIcon={<ChevronDownIcon />}>
-                    {isOpen ? 'More Details Button' : 'More Details Button'}
-                  </MenuButton>
-                  <MenuList>
-                    <MenuItem onClick={() => alert('Assigned to employee1 (admin)')}>To yourself (admin)</MenuItem>
-                    <MenuItem onClick={() => alert('Assigned to employee2')}>To employee2</MenuItem>
-                  </MenuList>
-                </>
-              )}
-            </Menu>
-
-            </Td>
-        </Tr>
+           {populate}
         </Tbody>
     </Table>
     </TableContainer>

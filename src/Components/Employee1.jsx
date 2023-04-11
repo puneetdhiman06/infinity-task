@@ -5,7 +5,7 @@ import Allocated from './Allocated'
 const Employee1 = () => {
   return (
     <>
-       <Tabs>
+       <Tabs style={{paddingTop:"5rem"}}>
         <TabList>
             <Tab>Unallocated Tasks</Tab>
             <Tab>Allocated Tasks</Tab>
